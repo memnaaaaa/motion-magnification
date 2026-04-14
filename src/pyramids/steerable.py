@@ -3,10 +3,6 @@ src/pyramids/steerable.py
 -------------------------
 Regular, Complex, and Sub-octave Complex Steerable Pyramids.
 
-Adapted from the root-level ``steerable_pyramid.py`` reference implementation.
-Math is unchanged; imports updated to use ``src.pyramids.pyramid_utils``
-and the interface cleaned up with type hints and docstrings.
-
 Sources
 -------
 Papers:

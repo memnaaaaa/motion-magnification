@@ -3,20 +3,6 @@ src/magnification/phase_based.py
 ---------------------------------
 Phase-Based Motion Magnification pipeline.
 
-Uses a complex steerable pyramid to decompose each frame into oriented
-subbands, extracts the instantaneous phase of each subband (which encodes
-local motion), bandpass-filters the phase signal in time, and amplifies
-it before reconstructing the video.
-
-Adapted from the root-level ``phase_based_processing.py`` and
-``motion_magnification.py`` reference implementations.  Math is unchanged;
-imports updated to use the ``src.*`` package hierarchy and the argparse CLI
-block is replaced by a clean function interface.
-
-Public API
-----------
-run_phase_based(frames, fps, freq_low, freq_high, alpha, **kwargs) -> np.ndarray
-
 CLI
 ---
 python -m src.magnification.phase_based \\
