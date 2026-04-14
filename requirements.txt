@@ -1,0 +1,55 @@
+# Motion Magnification — Python 3.12 Dependencies
+# Install inside the motionmag conda environment:
+#   conda activate motionmag
+#   pip install -r requirements.txt
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# COMPATIBILITY NOTES (Python 3.12)
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# [OK]  numpy >= 1.26       — full Python 3.12 support from 1.26 onward
+# [OK]  scipy >= 1.12       — 3.12 support added in 1.12
+# [OK]  opencv-python >= 4.9 — headless build works fine on 3.12
+# [OK]  matplotlib >= 3.8   — 3.12 compatible
+# [OK]  jupyterlab >= 4.1   — 3.12 compatible
+# [OK]  ipykernel >= 6.29   — 3.12 compatible
+# [OK]  tqdm                — no version sensitivity
+# [OK]  imageio[ffmpeg]     — 3.12 compatible; requires ffmpeg binary on PATH
+#
+# [WARN] torch (PyTorch) — optional, only needed if using RAFT stabilization.
+#         PyTorch 2.2+ supports Python 3.12. Install separately. If CUDA 12.8:
+#         pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#
+# [WARN] pyoperators / pyrtools — older complex steerable pyramid libraries
+#         may not have Python 3.12 wheels. If you need the phase-based
+#         pipeline and pyrtools fails to install, use the pure-numpy fallback
+#         implementation in src/pyramids/spatial.py instead.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core numerical stack
+numpy>=1.26
+scipy>=1.12
+
+# Video I/O
+opencv-python>=4.9.0.80
+imageio>=2.34
+imageio[ffmpeg]
+
+# Plotting and visualization
+matplotlib>=3.8
+
+# Notebook environment
+jupyterlab>=4.1
+ipykernel>=6.29
+ipywidgets>=8.1
+
+# Progress bars
+tqdm>=4.66
+
+# ─── Optional: only needed for phase-based pipeline ───────────────────────
+ pyrtools>=1.0.1        # Complex steerable pyramid — may fail on 3.12,
+#                        # see note above. Uncomment only after checking.
+
+# ─── Optional: only needed for RAFT stabilization ─────────────────────────
+# Install PyTorch separately (see note above).
